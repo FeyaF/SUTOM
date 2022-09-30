@@ -5,7 +5,11 @@
 Sample motus app
 to start with microservice course
 
+<<<<<<< HEAD
  ## Usage 
+=======
+ ## usage 
+>>>>>>> Update README.md
  
  use with standard node command
  

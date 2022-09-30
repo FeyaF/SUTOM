@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>TP SUTOM</title>
+    <script src="/jquery-3.6.0.js"></script>
+</head>
+<body>
+   <h1>CONNEXION</h1>
+    <div>
+     <form>
+        <center>
+         <input type="text" id="name" placeholder="name"/><br>
+         <input type ="text" id="surname" placeholder="surname"/><br>
+         <input type="submit" value="envoyer"/>
+        </center>
+     </form>
+    </div>
+</body>
+<script>
+    $("form").submit(function(e){
+        e.preventDefault()
+        var name = document.getElementById("name").value
+        localStorage.setItem("name", name)
+        console.log(localStorage.getItem("name"))
+        document.location="index.html"
+    })
+    
+    
+</script>
+</html>

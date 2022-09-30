@@ -1,0 +1,44 @@
+<head>
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="/google.font.css">
+    <!-- CSS Reset -->
+    <link rel="stylesheet" href="/css/normalize/8.0.1/normalize.css">
+    <!-- Milligram CSS -->
+    <link rel="stylesheet" href="/css/milligram/1.4.1/milligram.css">
+    
+    <!-- Jquery -->
+    <script src="/jquery-3.6.0.js"></script>
+
+</head>
+<body style="font-size:45px">
+    <div class="container">
+        <div class="row">
+            <div class="column"><h1>My motus App</h1></div>
+        </div>
+
+        <div>
+            <table>
+                <tr>
+                    <th>
+                        Score Total
+                    </th>
+                    <th>
+                        Moyenne d'essais
+                    </th>
+                </tr>
+                <tr>
+                    <td id="score">
+                       
+                    </td>
+                    <td id="essais">
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+<script>
+     document.getElementById("score").innerHTML = localStorage.getItem("score")
+     document.getElementById("essais").innerHTML = localStorage.getItem("essai")
+</script>

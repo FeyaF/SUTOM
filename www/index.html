@@ -11,6 +11,7 @@
 
 </head>
 <body style="font-size:45px">
+    <button><a href="login.html">Login</a></button>
     <div class="container">
         <div class="row">
             <div class="column"><h1>My motus App</h1></div>
@@ -28,10 +29,27 @@
 </body>
     
     <script>
+    
+
+    if (localStorage.getItem("name") == null) {
+     document.location = "/login.html" 
+    }
 
 
+    var score = 0
+    var essais = 0
+
+    if( localStorage.getItem("score")){
+        score = parseInt(localStorage.getItem("score"))
+    }
+
+    if( localStorage.getItem("essai")){
+        essais = parseInt(localStorage.getItem("essai"))
+    }
 
     var current_word = "";
+    
+    
 
     $.get( "/mot", function( data ) {
         current_word = data.trim().toUpperCase()
@@ -66,7 +84,17 @@
                 found = false;
                 proposal_analysis += getSpan(letter,'white')
             }
+         
         }
+        essais += 1
+        localStorage.setItem("essai", essais)
+        if (proposal == current_word){
+            score += 1
+            localStorage.setItem("score", score)
+            document.location = "/score.html" 
+
+        }
+
         $("#progress").append(proposal_analysis+"<br />") 
         $("#response").val('')
         $("#response").focus()
@@ -76,6 +104,9 @@
         console.log(letter)
         return `<span style="background-color:${color}">${letter.toUpperCase()}&nbsp</span>` 
     }
+   
 
     $("#response").focus()
+
+   
 </script>
